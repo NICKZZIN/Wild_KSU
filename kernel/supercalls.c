@@ -1027,22 +1027,14 @@ int ksu_handle_sys_reboot(int magic1, int magic2, unsigned int cmd, void __user 
     // If magic2 is susfs and current process is root
     if (magic2 == SUSFS_MAGIC && ksu_require_root()) {
 #ifdef CONFIG_KSU_SUSFS_SUS_PATH
-        if (cmd == CMD_SUSFS_ADD_SUS_PATH) {
-            susfs_add_sus_path(arg);
-            return 0;
-        }
-        if (cmd == CMD_SUSFS_ADD_SUS_PATH_LOOP) {
-            susfs_add_sus_path_loop(arg);
-            return 0;
-        }
-        if (cmd == CMD_SUSFS_SET_ANDROID_DATA_ROOT_PATH) {
-            susfs_set_i_state_on_external_dir(arg);
-            return 0;
-        }
-        if (cmd == CMD_SUSFS_SET_SDCARD_ROOT_PATH) {
-            susfs_set_i_state_on_external_dir(arg);
-            return 0;
-        }
+		if (cmd == CMD_SUSFS_ADD_SUS_PATH) {
+			susfs_add_sus_path(arg);
+			return 0;
+		}
+		if (cmd == CMD_SUSFS_ADD_SUS_PATH_LOOP) {
+			susfs_add_sus_path_loop(arg);
+			return 0;
+		}
 #endif // #ifdef CONFIG_KSU_SUSFS_SUS_PATH
 #ifdef CONFIG_KSU_SUSFS_SUS_MOUNT
         if (cmd == CMD_SUSFS_HIDE_SUS_MNTS_FOR_NON_SU_PROCS) {
