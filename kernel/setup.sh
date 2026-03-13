@@ -2,7 +2,7 @@
 set -eu
 
 GKI_ROOT=$(pwd)
-OWNER="WildKernels"
+OWNER="cyberc3dr"
 REPO="Wild_KSU"
 
 display_usage() {
